@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Automation Project</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/templatemo-main.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="fixed-side-navbar">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#home"><span>Home</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#about"><span>About</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#analysis"><span>Analysis</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-us"><span>Contact Us</span></a></li>
+      </ul>
+    </div>
+
+    <div class="parallax-content baner-content" id="home">
+      <div class="container">
+        <div class="first-content">
+          <h1>Home Automation</h1>
+          <span><em>Project</em></span>
+          <div class="primary-button">
+            <a href="#about">Discover More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-content" id="about">
+      <div class="container">
+        <div class="row" >
+          <div class="col-md-4">
+            <div class="left-text">
+              <h4>About Our Project</h4>
+              <div class="line-dec"></div>
+              <p>Our home automation project integrates various sensors and systems to provide a comprehensive overview and control of your home environment.</p>
+              <div class="primary-button">
+                <a href="#analysis">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallax-content projects-content" id="analysis">
+      <div class="container">
+        <h1 style="color: whitesmoke; margin: 1em; font-style: bold; ">Analysis</h1>
+        <div class="card-grid">
+          <div class="card" onclick="showGraphs('indoor')">
+            <h4>Indoor Environment Monitoring</h4>
+            <p>Monitor the indoor climate including temperature, humidity, and air quality.</p>
+          </div>
+          <!-- Card for Outdoor Environment Monitoring -->
+          <div class="card" onclick="showGraphs('outdoor')">
+            <h4>Outdoor Environment Monitoring</h4>
+            <p>Monitor the outdoor climate including temperature, humidity, and air quality.</p>
+          </div>
+          <!-- Card for Gas Monitoring -->
+          <div class="card" onclick="showGraphs('gas')">
+            <h4>Gas Monitoring</h4>
+            <p>Monitor levels of smoke, CO, and LPG in the environment.</p>
+          </div>
+          <!-- Card for Gardening Monitoring -->
+          <div class="card" onclick="showGraphs('gardening')">
+            <h4>Gardening Monitoring</h4>
+            <p>Monitor soil moisture, soil temperature, and pest levels.</p>
+          </div>
+          <div class="card" onclick="showGraphs('AirQuality')">
+            <h4>Air Quality Monitoring</h4>
+            <p>Monitor levels of Oxygen, Carbon Dioxide in the environment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-container" class="popup-container">
+      <div id="popup-card" class="popup-card">
+        <button class="close-button" onclick="closePopup()">×</button>
+        <div class="graph-section">
+          <div id="popup-content"></div>
+          <button class="prev-button" onclick="prevGraph()">←</button>
+          <button class="next-button" onclick="nextGraph()">→</button>
+        </div>
+        <div class="chat-section">
+          <div class="chat-card">
+            <h2>My Home AI</h2>
+            <div id="chat-content">
+              <div class="chat-box">
+                <div class="messages">
+                  <!-- Messages will appear here -->
+                </div>
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="parallax-content contact-content" id="contact-us">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="outerControlKit">
+              <div class="cardCover output-card">
+                <div class="card-body">
+                  <h1 class="text-center" style="color: black;">Home Controller Kit</h1>
+                  <div class="row controller-grid">
+                  <!-- Display Screen Card -->
+                  <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="ControllerCard custom-card">
+                      <div class="card-body">
+                        <h1 class="card-title text-center mb-4" style="color: white;">Display Screen</h1>
+                        <div id="display-screen" style="height: 300px; overflow-y: scroll;">
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <!-- Comfort Features Card -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <div class="ControllerCard custom-card">
+                        <div class="card-body">
+                          <h1 class="card-title text-center mb-4" style="color: white;">Comfort Features</h1>
+                          <div class="control-group">
+                            <label for="air-purifier" style="font-size: 1em; color: aliceblue;">Air Purifier</label>
+                            <label class="switch">
+                              <input type="checkbox" id="air-purifier">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="control-group" style="display: flex; justify-content: space-between; align-items: center;">
+                            <label for="temperature-slider" style="font-size: 1em; color: aliceblue;">Temperature Control</label>
+                            <div style="display: flex; align-items: center;">
+                              <input type="range" id="temperature-slider" min="16" max="30" value="22" style="width: 100px;">
+                              <span id="temperature-value" style="margin-left: 10px;">22°C</span>
+                            </div>
+                          </div>
+
+
+                          <div class="control-group">
+                            <label for="heated-seats" style="font-size: 1em; color: aliceblue;">Heated Seats</label>
+                            <label class="switch">
+                              <input type="checkbox" id="heated-seats">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Security Features Card -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <div class="ControllerCard custom-card">
+                        <div class="card-body">
+                          <h1 class="card-title text-center mb-4" style="color: white;">Security Features</h1>
+                          <div class="control-group">
+                            <label for="gas-alarm" style="font-size: 1em; color: aliceblue;">Gas Alarm</label>
+                            <label class="switch">
+                              <input type="checkbox" id="gas-alarm">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="control-group">
+                            <label for="fire-alarm" style="font-size: 1em; color: aliceblue;">Fire Alarm</label>
+                            <label class="switch">
+                              <input type="checkbox" id="fire-alarm">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="control-group">
+                            <label for="intrusion-alarm" style="font-size: 1em; color: aliceblue;">Intrusion Alarm</label>
+                            <label class="switch">
+                              <input type="checkbox" id="intrusion-alarm">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Gardening Features Card -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <div class="ControllerCard custom-card">
+                        <div class="card-body">
+                          <h1 class="card-title text-center mb-4" style="color: white;">Gardening Features</h>
+                            <div class="control-group">
+                              <label for="sprinklers" style="font-size: 1em; color: aliceblue;">Sprinklers</label>
+                              <label class="switch">
+                                <input type="checkbox" id="sprinklers">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                            <div class="control-group">
+                              <label for="pesticides" style="font-size: 1em; color: aliceblue;">Pesticides</label>
+                              <label class="switch">
+                                <input type="checkbox" id="pesticides">
+                                <span class="slider round"></span>
+                              </label>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Control Features Card -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <div class="ControllerCard custom-card">
+                        <div class="card-body">
+                          <h1 class="card-title text-center mb-4" style="color: white;">Control Features</h1>
+                          <div class="control-group">
+                            <label for="main-gate" style="color: white;">Main Gate</label>
+                            <label class="switch">
+                              <input type="checkbox" id="main-gate">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="control-group">
+                            <label for="ac-control" style="color: white;">AC Control</label>
+                            <label class="switch">
+                              <input type="checkbox" id="ac-control">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                          <div class="control-group">
+                            <label for="lights-control" style="color: white;">Lights Control</label>
+                            <label class="switch">
+                              <input type="checkbox" id="lights-control">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Water Tank System Card -->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                      <div class="ControllerCard custom-card">
+                        <div class="card-body">
+                          <h1 class="card-title text-center mb-4" style="color: white;">Water Tank System</h1>
+                          <div class="control-group">
+                            <button class="btn btn-warning w-100" id="start-motor">Start Motor</button>
+                          </div>
+                          <div class="control-group">
+                            <button class="btn btn-warning w-100" id="stop-motor">Stop Motor</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- controller-grid -->
+                </div> <!-- card-body -->
+              </div> <!-- card output-card -->
+            </div> <!-- outerControlKit -->
+          </div> <!-- col-md-12 -->
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- parallax-content contact-content -->
+
+
+
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="primary-button">
+              <a href="#home">Back To Top</a>
+            </div>
+            <p>&copy; 2024 Home Automation Project</p>
+            <!-- Round buttons for project documentation, resources, support -->
+            <div class="project-buttons" style="align-content: center;">
+              <button class="primary-button-end">Documentation</button>
+              <button class="primary-button-end">Resources</button>
+              <button class="primary-button-end">Support</button>
+              <!-- Add more project-related buttons as needed -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+
+</html>
